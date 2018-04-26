@@ -1,0 +1,24 @@
+{
+  "name": "Main",
+  "description": "Main building in the region",
+  "buildRequire": {
+    "product": [
+      {
+        "id": 3,
+        "count": 4
+      },
+      {
+        "id": 73,
+        "count": 20
+      }
+    ],
+    "building": {
+
+    }
+  },
+  "buildTime": 100,
+  "prodution": [
+    "test",
+    "test2"
+  ]
+}

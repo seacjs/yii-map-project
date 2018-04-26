@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.rawgit.com/konvajs/konva/2.0.3/konva.min.js"></script>
+    <meta charset="utf-8">
+    <title>Konva Clipping Function Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #F0F0F0;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+
+
+    var stage = new Konva.Stage({
+        container: 'container',
+        width: width,
+        height: height
+    });
+
+    var layer = new Konva.Layer();
+
+
+
+    var group = new Konva.Group({
+        clipFunc: function(ctx) {
+            //ctx.beginPath();     // Start a new path.
+//            ctx.lineWidth = "3";
+//            ctx.strokeStyle = "green";  // This path is green.
+            ctx.moveTo(20, 20);
+            ctx.lineTo(200, 200);
+            ctx.lineTo(200, 160);
+
+//            var testPath = 'M 0 365.217C 62.0652 450.551 107.731 486.593 200 539.13C 295.549 488.983 340.29 451.769 400 365.217L 400 69.5652C 324.98 29.6867 282.168 10.4363 200 0C 121.719 14.3469 77.9967 29.5803 0 69.5652L 0 365.217Z';
+//            var p = Path2D(testPath);
+//            ctx.stroke(p);
+
+//            ctx.stroke();
+//            ctx.closePath();
+
+
+
+            //ctx.arc(250, 120, 50, 0, Math.PI * 2, false);
+            //ctx.arc(150, 120, 60, 0, Math.PI * 2, false);
+        },
+        draggable: true
+    });
+
+    var blueBlob = new Konva.Line({
+        points: [73, 140, 340, 23, 500, 109, 300, 170],
+        stroke: 'blue',
+        strokeWidth: 10,
+        fill: '#aaf',
+        tension: 0.8,
+        closed : true
+    });
+
+    var redBlob = new Konva.Line({
+        points: [73, 140, 340, 23, 500, 109],
+        stroke: 'red',
+        strokeWidth: 10,
+        fill: '#faa',
+        tension: 1.2,
+        scale: {x : 0.5, y : 0.5},
+        x: 100,
+        y: 50,
+        closed : true
+    });
+
+    group.add(blueBlob);
+    group.add(redBlob);
+    layer.add(group);
+
+    // add the layer to the stage
+    stage.add(layer);
+</script>
+
+</body>
+</html>
